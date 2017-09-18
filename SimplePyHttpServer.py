@@ -3,6 +3,7 @@ __author__ = 'Avinesh_Kumar'
 import BaseHTTPServer
 import time
 import HttpServerImpl
+import json
 
 hostname="127.0.0.1"
 port=80
@@ -21,8 +22,19 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         self.end_headers()
         from urlparse import urlparse, parse_qs
         query_components = parse_qs(urlparse(self.path).query)
-        res = HttpServerImpl.perform_command(query_components)
+        res = HttpServerImpl.process_get(query_components)
         print "response: ",res
+        self.wfile.write(res)
+
+
+    def do_POST(self):
+        content_len = int(self.headers.getheader('content-length'))
+        post_body = self.rfile.read(content_len)
+        print "post body: ",post_body
+        self.send_response(200)
+        self.end_headers()
+        data = json.loads(post_body)
+        res = HttpServerImpl.process_post(data)
         self.wfile.write(res)
 
 if __name__ == '__main__':
