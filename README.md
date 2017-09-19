@@ -4,7 +4,9 @@ Simple http server in python that honor GET, POST method with custom implementat
 You can run this on Linux and Windows as well. You must have python 2.7 installed on your system in order to run the server.
 
 PyHttpServer.py - This file is entry point to run the server. <br>
-HttpServerImpl.py - This file contains the implementation of GET and POST method, those are left to the user to implement as per need.
+HttpServerImpl.py - This file contains the implementation of GET and POST method, those are left to the user to implement as per need.<br>
+
+This implementation support only JSON format for POST method data. But you can free to change the implementation as per your need to honor wide range of data formats.
 
 Run server using below command
 
