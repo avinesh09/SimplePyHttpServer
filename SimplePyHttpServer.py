@@ -29,7 +29,8 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         res = HttpServerImpl.process_get(query_components)
         # print "response: ",res
         self.wfile.write(res)
-
+        
+    # support JSON post data only.
     def do_POST(self):
         content_len = int(self.headers.getheader('content-length'))
         post_body = self.rfile.read(content_len)
