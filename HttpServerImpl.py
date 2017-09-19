@@ -1,3 +1,4 @@
+__author__ = 'Avinesh_Kumar'
 '''
 MIT License
 
@@ -36,6 +37,8 @@ import json
 # example:
 # http://localhost/?command=ifconfig&value=1  ==> result to data = {'command': ['ifconfig'], 'value': ['1']}
 # http://localhost/?command=ifconfig&value=1&value=2  ==> result to data = {'command': ['ifconfig'], 'value': ['1','2']}
+
+# below methods implementation is only for demo purpose, you should change it as per your need.
 
 # this should return desired response.
 def process_get(data):
